@@ -114,25 +114,42 @@
 
 
 
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/IAmJamal10/UI/refs/heads/main/Lib'))()
+spawn(function()
 
 
+	setclipboard("https://link-hub.net/256968/blue-rivals-nice")
+	toclipboard("https://link-hub.net/256968/blue-rivals-nice")
+
+end)
+
+local Window = Rayfield:CreateWindow({
+   Name = "Loader",
+   LoadingTitle = "Script Loader",
+   LoadingSubtitle = "Legend Handles",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+ 
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "The Key Link Is Copied",
+      Subtitle = "If it didn't copy get link on right side!",
+      Note = "link-hub.net/256968/blue-rivals-nice",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/5Cw5AWRJ"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+local Tab = Window:CreateTab("Load", 4483362458) -- Title, Image
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Tab:CreateButton({
+	Name = "Load GUI",
+	Callback = function()
 local replicated_storage = game:GetService("ReplicatedStorage")
 local players = game:GetService("Players")
 local player = players.LocalPlayer
@@ -158,7 +175,7 @@ local CredSection = Tab1:NewSection("Settings")
 
 Section:NewToggle("Teleport To Ball (USE WITH AUTO GOAL)", "Tp", function(Value)
  a = Value
-        while a do task.wait(0.2)
+        while a do task.wait()
         pcall(function()
 for i,v in pairs(game.Workspace:GetDescendants()) do
 if v.Name == "Football" then
@@ -560,3 +577,11 @@ end)
 CredSection:NewButton("Mobile Keyboard", "Mobile Players", function(state)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
+	end})
+	
+	
+Tab:CreateButton({
+	Name = "Remove GUI",
+	Callback = function()
+	Rayfield:Destroy()
+	end})
